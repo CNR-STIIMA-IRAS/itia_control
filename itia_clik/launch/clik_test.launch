@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find ur_description)/urdf/ur10_robot.urdf.xacro'" />
+  <rosparam command="load" file="$(find itia_clik)/cfg/clik_test.yaml" />
+  <node name="itia_clik_test" pkg="itia_clik" type="itia_clik_test" output="screen"/>
+  
+  
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+<!--       <remap from="robot_description" to="different_robot_description" /> -->
+<!--       <remap from="joint_states" to="different_joint_states" /> -->
+    </node>
+</launch>

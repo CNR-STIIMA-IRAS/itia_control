@@ -1,0 +1,5 @@
+clik_test:
+  robot_name: /robot_description
+  base_link: world
+  end_link: ee_link
+  linear: 1

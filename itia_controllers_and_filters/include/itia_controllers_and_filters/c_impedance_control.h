@@ -1,0 +1,114 @@
+#ifndef __cImpendence__
+#define __cImpendence__
+
+#include <iostream>
+#include <fstream>
+#include <kdl/chain.hpp>
+#include <kdl/jntarrayacc.hpp>
+#include <Eigen/Core>
+#include <Eigen/Dense>
+#include <Eigen/Geometry>
+#include <ros/ros.h>
+#include <eigen_conversions/eigen_kdl.h>
+#include <geometry_msgs/PoseStamped.h>
+
+namespace itia {
+namespace controller {
+
+class c_impedance_control {
+
+private:
+
+    ros::NodeHandle nh;
+    Eigen::Matrix<double,6,6> a;
+    Eigen::Matrix<double,6,6>Kp;
+    Eigen::Matrix<double,6,6>Kd;
+    Eigen::Matrix<double,6,6>M;
+    Eigen::Matrix<double,6,6>Minv;
+
+    int cont1;
+    int cont2;
+    int cont3;
+    
+    double m_domega_min_psp_deg_s2;
+    
+    KDL::Vector phi_cd, phi_cd_old;
+    
+    KDL::Vector delta_w_psp, delta_iw_psp, pos_t_sp, pos_r_sp, pos_t_msr, pos_r_msr, deltapos_t, deltapos_r, vel_t_sp, vel_r_sp, vel_t_msr, deltavel_r, deltavel_t;
+    KDL::Vector start_pos_t, start_pos_r, phi_cd_start, phi_cd_cmd, phi_ed, dphi_cd_cmd, dphi_ed, ddphi_cd_cmd, ddphi_ed, delta_r_psp, delta_w_psp_old;
+    bool firstEntry_psp;
+    int imp_mode_r, imp_mode_t;
+    KDL::Wrench force_start;
+    
+    KDL::Rotation R_start;
+    
+    KDL::Vector xDev_psp;
+    KDL::Vector xdDev_psp;
+    KDL::Vector xddDev_psp;
+    
+    Eigen::Quaterniond q_psp;
+    KDL::Vector w_psp;
+    KDL::Vector dw_psp;
+    
+    KDL::Vector xDev;
+    KDL::Vector xdDev;
+    KDL::Vector xddDev;
+    Eigen::Matrix<double,3,1> force_filt;
+
+    Eigen::Quaterniond q;
+    KDL::Vector w;
+    KDL::Vector dw;
+    Eigen::Matrix<double,3,1> torque_filt;
+
+    double forceFiltTime;
+    double min_mass;
+    double maxDevLinVel;
+    double maxDevAngVel;
+    double maxDevLinPos;
+    double maxDevAngPos;
+    double forceDeadBand;
+    double torqueDeadBand;
+    bool saturation;
+    bool firstEntry;
+
+    KDL::FrameAcc frameCom;
+    KDL::FrameAcc frameDev;
+    ros::Time initTime;
+    
+    geometry_msgs::PoseStamped impPosesetpoint;
+    
+    ros::Publisher  impPoseSp_pub;
+
+    void integration ( const double& timeInterval );
+    
+    void integration_psp ( const double& timeInterval );
+
+public:
+    enum AngleConvection { EULER_ZYX    = 0, //default
+                           RPY          = 1
+                         } angleConvection;
+
+    c_impedance_control ( const std::string& name );
+
+    KDL::FrameAcc get_control_action ( const KDL::FrameAcc& frameSp,
+                                       const KDL::Wrench& force_sp,
+                                       const KDL::Wrench& force,
+                                       const double& timeInterval );
+    
+    KDL::FrameAcc get_control_action_position_sp ( const KDL::FrameAcc cartFrame_Sp,
+                                                   const KDL::FrameVel cartFrame_msr,
+                                                   const KDL::Wrench& force, //tool frame
+                                                   const double& timeInterval,
+                                                   const bool& setfirstEntry_psp,
+                                                   const double& add_damp
+                                                 ) ;
+
+    void set_parameters ( const std::vector<double>& mass,
+                          const std::vector<double>& stiff,
+                          const std::vector<double>& damp );
+};
+
+};
+}
+
+#endif

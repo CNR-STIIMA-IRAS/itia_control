@@ -1,0 +1,9 @@
+maintainer:
+manuel.beschi@itia.cnr.it
+contributors:
+manuel.beschi@itia.cnr.it
+enrico.villagrossi@itia.cnr.it
+loris.roveda@itia.cnr.it
+
+nicola.pedrocchi@itia.cnr.it
+

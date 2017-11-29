@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package>
+  <name>itia_clik</name>
+  <version>0.0.0</version>
+  <description>The itia_clik package: click and redundancy clik</description>
+  <maintainer email="manuel.beschi@itia.cnr.it">manuel</maintainer>
+  <license>TODO</license>
+
+  <author email="manuel.beschi@itia.cnr.it">Manuel Beschi</author>
+  <author email="alberto.marini@itia.cnr.it">Manuel Beschi</author>
+  <author email="paolo.magnoni@itia.cnr.it">Manuel Beschi</author>
+
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>eigen_conversions</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  
+  <build_depend>itia_mutils</build_depend>
+  <build_depend>itia_rutils</build_depend>
+  <build_depend>kdl_conversions</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>tf_conversions</build_depend>
+  <build_depend>kdl_parser</build_depend>
+  
+  <run_depend>eigen_conversions</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>itia_mutils</run_depend>
+  <run_depend>itia_rutils</run_depend>
+  <run_depend>kdl_conversions</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>tf_conversions</run_depend>
+  <run_depend>kdl_parser</run_depend>
+
+  <build_depend>dynamic_reconfigure</build_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <export>
+  </export>
+</package>

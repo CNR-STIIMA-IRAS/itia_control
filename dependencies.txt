@@ -1,0 +1,5 @@
+DEPENDENCIES FROM ITIA GIT:
+
+- itia_msgs
+- itia_control_msgs
+- itia_utilities

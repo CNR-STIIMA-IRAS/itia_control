@@ -1,4 +1,4 @@
-# ITIA CONTROL UTILITIES by CNR-ITIA (www.itia.cnr.it)
+ # ITIA CONTROL UTILITIES by CNR-ITIA (www.itia.cnr.it)
 
 The repository contains the implementation of different algorithms developed by the Institute of Industrial Technologies and Automation, of the National Research Council of Italy (CNR-ITIA).
 
@@ -36,6 +36,6 @@ More details are reported in **scripts** ([README](scripts/README.md)).
  
 Software License Agreement (BSD License) Copyright (c) 2016, National Research Council of Italy, Institute of Industrial Technologies and Automation. All rights reserved.
 
-#Acknowledge
+# Acknowledge
 
 **This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No. 637095.**

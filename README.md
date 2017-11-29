@@ -27,13 +27,14 @@ The package provides also scripts to decode the binary files in MATLAB.
 More details are reported in **scripts** ([README](scripts/README.md)).
 
 
-# Developers Contacts
+# Developers Information
 
 **Authors:** 
 
 - Manuel Beschi (manuel.beschi@itia.cnr.it)
 - Nicola Pedrocchi (nicola.pedrocchi@itia.cnr.it)
  
+**Licensing:** 
 Software License Agreement (BSD License) Copyright (c) 2016, National Research Council of Italy, Institute of Industrial Technologies and Automation. All rights reserved.
 
 # Acknowledge

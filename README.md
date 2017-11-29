@@ -35,3 +35,7 @@ More details are reported in **scripts** ([README](scripts/README.md)).
 - Nicola Pedrocchi (nicola.pedrocchi@itia.cnr.it)
  
 Software License Agreement (BSD License) Copyright (c) 2016, National Research Council of Italy, Institute of Industrial Technologies and Automation. All rights reserved.
+
+#Acknowledge
+
+**This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No. 637095.**
